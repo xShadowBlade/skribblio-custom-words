@@ -2,8 +2,13 @@
   "name": "skribblio-custom-words",
   "version": "0.1.0",
   "description": "skribblio custom words solver",
+  "private": true,
   "main": "src/index.ts",
   "scripts": {
+    "start": "webpack-dev-server --mode development --devtool source-map --output-pathinfo",
+    "build": "webpack --mode production",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint --fix src/**/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,6 +21,18 @@
     "url": "https://github.com/xShadowBlade/skribblio-custom-words/issues"
   },
   "homepage": "https://github.com/xShadowBlade/skribblio-custom-words#readme",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",
