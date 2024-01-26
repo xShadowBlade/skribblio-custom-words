@@ -14,14 +14,14 @@ function solve (letters: string, dictionary: string[]): string[] {
     lettersArr = lettersArr.map((letter) => {
         letter = letter.toLowerCase();
         if (["?", "*", "_", "."].includes(letter)) {
-            letter = "."; // . is a wildcard for use in regex
+            letter = "[a-zA-Z]"; // . is a wildcard for use in regex
         }
         return letter;
     });
-    console.log(lettersArr);
+    // console.log(lettersArr);
     // const lettersSet = new Set(lettersArr);
     const lettersRegex = new RegExp(`^${lettersArr.join("")}$`);
-    console.log(lettersRegex);
+    // console.log(lettersRegex);
     for (const word of dictionary) {
         // }
         if (word.match(lettersRegex)) {

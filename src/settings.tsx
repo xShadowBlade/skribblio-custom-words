@@ -25,9 +25,9 @@ WordsBox.propTypes = {
 function WordsBox ({ words, setWords, language, setLanguage }: { words: string[], setWords: (words: string[]) => void, language: string, setLanguage: (language: string) => void }) {
     // const [words, setWords] = useState<string[]>([]);
     // const [language, setLanguage] = useState<string>("en");
-    const customWordsInput = document.getElementById("custom-word-list") as HTMLInputElement;
-    const languageInput = document.getElementById("language-select") as HTMLInputElement;
-    const localSwitch = document.getElementById("local-switch") as HTMLInputElement;
+    // const customWordsInput = document.getElementById("custom-word-list") as HTMLInputElement;
+    // const languageInput = document.getElementById("language-select") as HTMLInputElement;
+    // const localSwitch = document.getElementById("local-switch") as HTMLInputElement;
 
     useEffect(() => {
         // Load settings from local storage
@@ -49,6 +49,9 @@ function WordsBox ({ words, setWords, language, setLanguage }: { words: string[]
      * Save the words to state and local storage (if enabled)
      */
     function saveWords (): void {
+        const customWordsInput = document.getElementById("custom-word-list") as HTMLInputElement;
+        const languageInput = document.getElementById("language-select") as HTMLInputElement;
+        const localSwitch = document.getElementById("local-switch") as HTMLInputElement;
         // Get the words from the input
         let wordsInput = customWordsInput.value.split(",");
 
@@ -86,6 +89,9 @@ function WordsBox ({ words, setWords, language, setLanguage }: { words: string[]
      * Update the display if loaded from local storage, when the accordian is opened
      */
     function updateDisplay (): void {
+        const customWordsInput = document.getElementById("custom-word-list") as HTMLInputElement;
+        const languageInput = document.getElementById("language-select") as HTMLInputElement;
+        // const localSwitch = document.getElementById("local-switch") as HTMLInputElement;
         customWordsInput.value = words.join(", ");
         languageInput.value = language;
     }
