@@ -1,6 +1,6 @@
 {
   "name": "skribblio-custom-words",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "skribblio custom words solver",
   "private": true,
   "main": "src/index.ts",
