@@ -2,6 +2,8 @@
  * @file Function to output words from a given set of letters and a dictionary
  */
 
+const specialChars = ["?", "*", "_", ".", "+", "^", "$", "(", ")", "[", "]", "{", "}", "|", "\\", "/"]; // Special characters that need to be escaped in regex
+
 /**
  * Function to output words from a given set of letters and a dictionary
  * @param letters - The letters to use. Can have spaces. Unknown letters should be represented by a question mark (?), asterisk (*), underscore (_), or period (.)
@@ -13,7 +15,7 @@ function solve (letters: string, dictionary: string[]): string[] {
     let lettersArr: string[] = letters.trim().split("");
     lettersArr = lettersArr.map((letter) => {
         letter = letter.toLowerCase();
-        if (["?", "*", "_", "."].includes(letter)) {
+        if (specialChars.includes(letter)) {
             letter = "[a-zA-Z]"; // . is a wildcard for use in regex
         }
         return letter;

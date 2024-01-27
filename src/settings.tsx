@@ -8,7 +8,9 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
 
-WordsBox.propTypes = {
+import Credits from "./credits";
+
+Settings.propTypes = {
     words: PropTypes.arrayOf(PropTypes.string).isRequired,
     setWords: PropTypes.func.isRequired,
     language: PropTypes.string.isRequired,
@@ -16,13 +18,13 @@ WordsBox.propTypes = {
 };
 
 /**
- * WordsBox component
+ * Settings component
  * @param props WordsBox props
  * @param props.setWords
  * @param props.setLanguage
  * @returns WordsBox component
  */
-function WordsBox ({ words, setWords, language, setLanguage }: { words: string[], setWords: (words: string[]) => void, language: string, setLanguage: (language: string) => void }) {
+function Settings ({ words, setWords, language, setLanguage }: { words: string[], setWords: (words: string[]) => void, language: string, setLanguage: (language: string) => void }) {
     // const [words, setWords] = useState<string[]>([]);
     // const [language, setLanguage] = useState<string>("en");
     // const customWordsInput = document.getElementById("custom-word-list") as HTMLInputElement;
@@ -99,8 +101,9 @@ function WordsBox ({ words, setWords, language, setLanguage }: { words: string[]
     return (
         <Accordion>
             <Accordion.Item eventKey="0">
-                <Accordion.Header>Words settings</Accordion.Header>
+                <Accordion.Header>Settings</Accordion.Header>
                 <Accordion.Body onEnter={updateDisplay}>
+                    <Credits />
                     <FloatingLabel label="Language" className="mb-3">
                         <Form.Select id="language-select">
                             <option value="en">English</option>
@@ -120,9 +123,8 @@ function WordsBox ({ words, setWords, language, setLanguage }: { words: string[]
                     <Button variant="primary" onClick={saveWords}>Save</Button>
                 </Accordion.Body>
             </Accordion.Item>
-
         </Accordion>
     );
 }
 
-export default WordsBox;
+export default Settings;

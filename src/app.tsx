@@ -2,8 +2,9 @@
  * @file App component
  */
 import React, { useState } from "react";
-import WordsBox from "./settings";
+import Settings from "./settings";
 import Solving from "./solving";
+import Credits from "./credits";
 
 /**
  * App component
@@ -14,12 +15,13 @@ function App () {
     const [language, setLanguage] = useState<string>("en");
 
     return <>
-        <WordsBox
+        <Settings
             words={words}
             setWords={setWords}
             language={language}
             setLanguage={setLanguage}
         />
+        {/* <Credits /> */}
         <Solving
             words={words}
             // setWords={setWords}
