@@ -46,13 +46,13 @@ function Word ({ word }: { word: string }) {
         navigator.clipboard.writeText(word);
     }
 
-    return <Button
-        variant="primary"
+    return <><Button
+        variant="secondary"
         onClick={copyWordToClipboard}
         title="Click to copy"
     >
         {word}
-    </Button>;
+    </Button>{" "}</>;
 }
 
 
