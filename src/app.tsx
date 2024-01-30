@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import Settings from "./settings";
 import Solving from "./solving";
-import Credits from "./credits";
+// import Credits from "./credits";
 
 /**
  * App component

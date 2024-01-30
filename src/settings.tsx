@@ -17,12 +17,9 @@ Settings.propTypes = {
     setLanguage: PropTypes.func.isRequired,
 };
 
+// eslint-disable-next-line jsdoc/require-param
 /**
- * Settings component
- * @param props WordsBox props
- * @param props.setWords
- * @param props.setLanguage
- * @returns WordsBox component
+ * @returns Settings component
  */
 function Settings ({ words, setWords, language, setLanguage }: { words: string[], setWords: (words: string[]) => void, language: string, setLanguage: (language: string) => void }) {
     // const [words, setWords] = useState<string[]>([]);
@@ -111,8 +108,10 @@ function Settings ({ words, setWords, language, setLanguage }: { words: string[]
                     </FloatingLabel>
 
                     <FloatingLabel
-                        label="Custom Words List (separated by commas, leave blank for default)" className="mb-3" >
-                        <Form.Control id="custom-word-list" type="text" placeholder=""/>
+                        label="Custom Words List (separated by commas, leave blank for default)"
+                        className="mb-3"
+                    >
+                        <Form.Control id="custom-word-list" type="text" />
                     </FloatingLabel>
                     <Form.Check
                         type="switch"

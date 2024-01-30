@@ -5,8 +5,8 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
+// eslint-disable-next-line jsdoc/require-param
 /**
- * Credits component
  * @returns Credits component
  */
 function Credits () {
@@ -25,6 +25,7 @@ function Credits () {
                 <Offcanvas.Title>Credits</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
+                <p>Version 1.1.0</p>
                 <p>Skribblio Solver is a project by <a href="https://github.com/xShadowBlade">xShadowBlade</a>.</p>
                 <p>It is open source and available on <a href="https://github.com/xShadowBlade/skribblio-custom-words">GitHub</a>.</p>
                 <p>It is licensed under the <a href="https://github.com/xShadowBlade/skribblio-custom-words/blob/main/LICENSE">MIT License</a>.</p>

@@ -14,7 +14,7 @@
 		"outDir": "./dist",  // Adjust this based on your project structure
 		"sourceMap": true
 	},
-	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx", "../../emath.js/dist/**/*"],
+	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
 	"exclude": [
 	  	"node_modules/"
 	]

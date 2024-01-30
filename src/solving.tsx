@@ -33,10 +33,9 @@ async function fetchCSVWords (url: string): Promise<string[]> {
 Word.propTypes = {
     word: PropTypes.string.isRequired,
 };
+// eslint-disable-next-line jsdoc/require-param
 /**
- * Component for words
- * @param root0
- * @param root0.word
+ * @returns Component for words
  */
 function Word ({ word }: { word: string }) {
     /**
@@ -90,7 +89,7 @@ function Solving ({ words, language}: { words: string[], language: string }) {
      * Solve and display the words
      */
     function solveAndDisplay () {
-        const input = document.getElementById("floatingInput") as HTMLInputElement;
+        const input = document.getElementById("input-words") as HTMLInputElement;
         const output = document.getElementById("output") as HTMLInputElement;
         const possibleWords = solve(input.value, words.length !== 0 ? words : defaultEng);
         // console.log(possibleWords);
@@ -103,23 +102,58 @@ function Solving ({ words, language}: { words: string[], language: string }) {
         setWordComponentsList(wordComponents);
     }
 
-    return <div>
+    /**
+     * Quick input letter count
+     */
+    function letterCount () {
+        const input = document.getElementById("input-words") as HTMLInputElement;
+        const quickInput = document.getElementById("quick-input") as HTMLInputElement;
+
+        const letterCounts = quickInput.value.trim().split(" ").map((letterCountNum) => {
+            // return parseInt(letterCount);
+            return "*".repeat(parseInt(letterCountNum));
+        }).join(" ");
+
+        input.value = letterCounts;
+        solveAndDisplay();
+    }
+
+    return <><div style={{
+        display: "flex",
+    }}>
         <FloatingLabel
-            controlId="floatingInput"
-            label="Search by blanks. Can have spaces. Unknown letters should be represented by a question mark (?), asterisk (*), underscore (_), or period (.)"
+            controlId="input-words"
+            label="Search by blanks. Can have spaces. For unknown letters, put (*)"
             className="mb-3"
+            style={{
+                width: "75%",
+                // margin: "0 auto",
+            }}
         >
             <Form.Control
                 type="text"
-                placeholder="name@example.com"
                 onChange={solveAndDisplay}
             />
         </FloatingLabel>
-        <br />
-        <div id="output">
-            {/* <Word word="test" /> */}
-            {wordComponentsList}
-        </div>
-    </div>;
+        <FloatingLabel
+            controlId="quick-input"
+            label={"Input letter count (ex. \"3 4\")"}
+            className="mb-3"
+            style={{
+                width: "25%",
+                // margin: "0 auto",
+            }}
+        >
+            <Form.Control
+                type="text"
+                // placeholder=""
+                onChange={letterCount}
+            />
+        </FloatingLabel>
+    </div>
+    <div id="output">
+        {/* <Word word="test" /> */}
+        {wordComponentsList}
+    </div></>;
 }
 export default Solving;

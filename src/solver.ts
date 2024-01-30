@@ -35,6 +35,7 @@ function solve (letters: string, dictionary: string[]): string[] {
 }
 
 // Debugging
-(window as any).solve = solve;
+// // @ts-expect-error - Replaced by webpack
+// if (MODE as boolean) (window as any).solve = solve;
 
 export { solve };
